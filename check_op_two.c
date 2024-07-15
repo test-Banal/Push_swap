@@ -1,0 +1,74 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_op_two.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aneumann <aneumann@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/06 08:46:42 by aneumann          #+#    #+#             */
+/*   Updated: 2024/07/02 16:18:08 by aneumann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "./libft/libft.h"
+#include "push_swap.h"
+
+void	ft_ra_check(t_list **stack_a)
+{
+	t_list	*last;
+	t_list	*first;
+
+	if (*stack_a == NULL || (*stack_a)->next == NULL)
+		return ;
+	last = *stack_a;
+	first = *stack_a;
+	while (last->next != NULL)
+		last = last->next;
+	*stack_a = first->next;
+	first->next = NULL;
+	last->next = first;
+	return ;
+}
+
+void	ft_rb_check(t_list **stack_b)
+{
+	t_list	*last;
+	t_list	*first;
+
+	if (*stack_b == NULL || (*stack_b)->next == NULL)
+		return ;
+	last = *stack_b;
+	first = *stack_b;
+	while (last->next != NULL)
+		last = last->next;
+	*stack_b = first->next;
+	first->next = NULL;
+	last->next = first;
+	return ;
+}
+
+void	ft_rr_check(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*last;
+	t_list	*first;
+
+	if (*stack_a == NULL || (*stack_a)->next == NULL)
+		return ;
+	last = *stack_a;
+	first = *stack_a;
+	while (last->next != NULL)
+		last = last->next;
+	*stack_a = first->next;
+	first->next = NULL;
+	last->next = first;
+	if (*stack_b == NULL || (*stack_b)->next == NULL)
+		return ;
+	last = *stack_b;
+	first = *stack_b;
+	while (last->next != NULL)
+		last = last->next;
+	*stack_b = first->next;
+	first->next = NULL;
+	last->next = first;
+	return ;
+}
